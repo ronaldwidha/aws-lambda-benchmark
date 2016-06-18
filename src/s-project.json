@@ -1,0 +1,5 @@
+{
+  "name": "lambda-benchmark",
+  "custom": {},
+  "plugins": ["serverless-runtime-babel"]
+}
