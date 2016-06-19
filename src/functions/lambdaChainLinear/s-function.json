@@ -1,26 +1,17 @@
 {
-  "name": "lambdaChainLinear",
+  "name": "lambdachainlinear",
   "runtime": "babel",
   "description": "Serverless Lambda function for project: lambda-benchmark",
   "customName": false,
   "customRole": false,
-  "handler": "functions/lambdaChainLinear/handler.default",
+  "handler": "lambdachainlinear/handler.default",
   "timeout": 6,
   "memorySize": 1024,
   "authorizer": {},
   "custom": {
     "excludePatterns": []
   },
-  "endpoints": [],
-  "events": [
-    {
-      "name": "mySchedule",
-      "type": "schedule",
-      "config": {
-        "schedule": "rate(5 minutes)"
-      }
-    }
-  ],
+  "events": [],
   "environment": {
     "SERVERLESS_PROJECT": "${project}",
     "SERVERLESS_STAGE": "${stage}",

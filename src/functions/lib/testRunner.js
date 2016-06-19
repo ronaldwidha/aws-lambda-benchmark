@@ -5,9 +5,9 @@ export default class testRunner {
 
   }
 
-  linearDirect(n) {
+  linearDirect(n, completed) {
     var jobId = "guid or something";
     var directLinearSpawner = new DirectLinearSpawner(jobId);
-    directLinearSpawner.start(n);
+    directLinearSpawner.fire(n, completed);
   }
 }
