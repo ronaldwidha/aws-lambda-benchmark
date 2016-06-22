@@ -1,13 +1,13 @@
 {
-  "name": "lambda-benchmark",
+  "name": "aws-lambda-benchmark",
   "version": "0.0.1",
-  "description": "A Serverless Project and its Serverless Plugin dependencies.",
-  "author": "me",
+  "description": "A simple test harness to investigate the performance characteristics of the different lambda integration pattern.",
+  "author": "Ronald Widha",
   "license": "APACHE-2",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/"
+    "url": "https://github.com/ronaldwidha/aws-lambda-benchmark.git"
   },
   "dependencies": {
     "aws-sdk": "^2.4.0",
