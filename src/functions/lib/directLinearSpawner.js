@@ -5,7 +5,6 @@ import Timekeeper from "./timekeeper";
 export default class DirectLinearSpawner {
   constructor(jobId) {
     this.jobId = jobId;
-
   }
 
   fire(spawnTarget, completed) {
@@ -13,6 +12,7 @@ export default class DirectLinearSpawner {
   }
 
   spawnChild(currentSpawnIndex, spawnTarget, completed) {
+    var completedCallback = completed;
     var timekeeper = new Timekeeper(this.jobId, currentSpawnIndex);
 
     if (currentSpawnIndex == -1) {
@@ -27,33 +27,25 @@ export default class DirectLinearSpawner {
       console.log(`yo: invoking lambda ${newIndex}`);
 
       var lambda = new AWS.Lambda({
-        //endpoint: 'https://lambda.us-east-1.amazonaws.com'
         region: "us-east-1"
       });
-
-      // lambda.listAliases({
-      //   FunctionName: 'lambdaChainLinear'
-      // }, (err, data) => {
-      //   console.log("err:" + err.stack);
-      //   console.log("data:" + JSON.stringify(data));
-      // });
 
       lambda.invoke({
         FunctionName: 'lambda-benchmark-lambdachainlinear',
         Payload: JSON.stringify({ "jobId": this.jobId, "spawnIndex": newIndex, "spawnTarget": spawnTarget }),
         InvocationType: 'Event'
-        //LogType: 'Tail'
       }, (err, data) => {
-
         if (err) console.log(err, err.stack); // an error occurred
-        else     console.log("data" + data);           // successful response
+        else console.log("data" + data);           // successful response
 
-        //completed();
+        if (completed) completed(err, data);
+
+        if (currentSpawnIndex == spawnTarget) {
+          timekeeper.endJob();
+        }
       });
     }
 
-    if (currentSpawnIndex == spawnTarget) {
-      timekeeper.endJob();
-    }
+
   }
 }

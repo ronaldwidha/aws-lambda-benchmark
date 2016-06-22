@@ -6,7 +6,7 @@ export default class testRunner {
   }
 
   linearDirect(n, completed) {
-    var jobId = "guid or something";
+    var jobId = "Direct call between lambda. depth: 5";
     var directLinearSpawner = new DirectLinearSpawner(jobId);
     directLinearSpawner.fire(n, completed);
   }

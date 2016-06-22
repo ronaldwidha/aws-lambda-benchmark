@@ -3,15 +3,15 @@ import TestRunner from "../lib/testRunner";
 
 
 export default (event, context) => {
+  var testRunner = Promise.promisifyAll(new TestRunner());
+
   // must return a promise, a JSON.stringify compatible data, null or nothing.
+  //return testRunner.linearDirectAsync(5, (err,data) => {message: 'executed'});
 
-  var test = new TestRunner();
-  var testAsync = Promise.promisifyAll(test);
+  //testRunner.linearDirectAsync(5, function(err, data)
 
-
-  test.linearDirect(5, () => {message: 'executed'});
-  //return testAsync.linearDirect(5)
-  //  .then(() => { message: 'executed'});
+  return testRunner.linearDirectAsync(5)
+    .then((err,data) => { message: 'executed'});
 
   //return {
   //   message: 'executed'

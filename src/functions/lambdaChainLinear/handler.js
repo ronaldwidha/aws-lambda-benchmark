@@ -1,3 +1,4 @@
+import Promise from "bluebird";
 import DirectLinearSpawner from "../lib/directLinearSpawner";
 
 export default (event, context) => {
@@ -7,21 +8,15 @@ export default (event, context) => {
   var currentSpawnIndex = event.spawnIndex;
   var spawnTarget = event.spawnTarget;
 
-  // var jobId = event[0];
-  // var currentSpawnIndex = event[1];
-  // var spawnTarget = event[2];
-
-
   console.log(`job id       : ${jobId}`);
   console.log(`current index: ${currentSpawnIndex}`);
   console.log(`target       : ${spawnTarget}`);
 
-  var directLinearSpawner = new DirectLinearSpawner(jobId);
-  //todo: return promise instead
-  directLinearSpawner.spawnChild(currentSpawnIndex, spawnTarget);
+  var directLinearSpawner = Promise.promisifyAll(new DirectLinearSpawner(jobId));
 
-  // must return a promise, a JSON.stringify compatible data, null or nothing.
-  //return {
-  //  message: `lambda ${currentSpawnIndex} spawned`
-  //}
+  //todo: return promise instead
+  return directLinearSpawner.spawnChildAsync(currentSpawnIndex, spawnTarget)
+    .then( (err, data) => {
+      message: `lambda ${currentSpawnIndex} spawned`
+    });
 }
