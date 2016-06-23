@@ -58,3 +58,14 @@ Preliminary Results
 | #8  | Linear | SNS | 1,000 | 164,541 ms |
 | #9  | Linear | SNS | 1,000 | 345,414 ms |
 | #10  | Linear | SNS | 1,000 | 170,153 ms |
+
+Getting Started
+---------------
+To be added
+
+Open Issues
+-----------
+- ARN need to be extracted out from code to Serverless variable
+- IAM Role and permission need to manually modified
+- SNS Topic needs to be manually added
+- More extensive logging/timer is required for better benchmarking accuracy & convenience
