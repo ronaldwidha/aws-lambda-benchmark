@@ -1,0 +1,33 @@
+{
+  "name": "snsSingleFunctionChain",
+  "runtime": "babel",
+  "description": "Serverless Lambda function for project: lambda-benchmark",
+  "customName": false,
+  "customRole": false,
+  "handler": "snsSingleFunctionChain/handler.default",
+  "timeout": 6,
+  "memorySize": 1024,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [],
+  "events": [
+    {
+      "name": "invocationTopic",
+      "type": "sns",
+      "config": {
+        "topicName": "lambda-benchmark-topic-snsSingleFunctionChain"
+      }
+    }
+  ],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}
