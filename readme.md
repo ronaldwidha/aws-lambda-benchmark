@@ -42,9 +42,9 @@ Available Invocation Types
 Preliminary Results
 -------------------
 
-Concurrent request: 1
-Runtime: Node4.3
-Memory: 1024MB
+- Concurrent request: 1
+- Runtime: Node4.3
+- Memory: 1024MB
 
 |  Run | Execution | Invocation |  Depth  | Duration (in ms)  |
 |------|-----------|------------|---------|-------------------|
