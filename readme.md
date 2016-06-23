@@ -41,8 +41,12 @@ Available Invocation Types
 Preliminary Results
 -------------------
 
+Concurrent request: 1
+Runtime: Node4.3
+Memory: 1024MB
+
 |  Run | Execution | Invocation |  Depth  | Duration (in ms)  |
-|---|---|---|---|---|
+|------|-----------|------------|---------|-------------------|
 | #1  | Linear | Direct | 5 | 608 ms |
 | #2  | Linear | Direct | 5 | 410 ms |
 | #3  | Linear | Direct | 1,000  | 78,926 ms |
@@ -52,3 +56,4 @@ Preliminary Results
 | #7  | Linear | SNS | 5 | 729 ms |
 | #8  | Linear | SNS | 1,000 | 164,541 ms |
 | #9  | Linear | SNS | 1,000 | 345,414 ms |
+| #10  | Linear | SNS | 1,000 | 170,153 ms |
