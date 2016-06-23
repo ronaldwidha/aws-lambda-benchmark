@@ -21,12 +21,12 @@ export default (event, context) => {
   var param = event.param;
   var executionState = event.executionState;
 
-  var theFunction = new TheFunction();
+  var theFunction = Promise.promisifyAll(new TheFunction());
 
   console.log(`Function start`);
   console.log(JSON.stringify(event.executionState));
 
-  return theFunction.invoke(param, executionState)
+  return theFunction.invokeAsync(param, executionState)
     .then((err,data) => {
       console.log(`Function invoked`);
     });

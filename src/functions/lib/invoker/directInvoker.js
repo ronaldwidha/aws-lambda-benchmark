@@ -11,6 +11,7 @@ export default class DirectInvoker {
       region: "us-east-1"
     });
 
+    // todo: get lambda name from serverless if possible
     lambda.invoke({
       FunctionName: 'lambda-benchmark-lambdachainlinear',
       Payload: JSON.stringify({ "executionState" : executionState }),

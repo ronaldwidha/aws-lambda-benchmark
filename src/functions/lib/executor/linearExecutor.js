@@ -1,9 +1,8 @@
-import Promise from "bluebird";
 import Timekeeper from "../timekeeper";
 
 export default class LinearExecutor {
   constructor(invoker) {
-    this.invoker = Promise.promisifyAll(invoker);
+    this.invoker = invoker;
     this.timekeeper = new Timekeeper();
   }
 
@@ -31,26 +30,26 @@ export default class LinearExecutor {
       this.timekeeper.startJob();
     }
 
-    if (currentSpawnIndex < spawnTarget) {
-      var newIndex = ++currentSpawnIndex;
+    var newIndex = ++currentSpawnIndex;
 
+    if (newIndex < spawnTarget) {
       // make call to Lambda
       // get lambda name from serverless if possible
       console.log(`yo: invoking lambda ${newIndex}`);
-      console.log(this.invoker);
-      console.log(this.invoker.invoke);
-      console.log(this.invoker.invokeAsync);
-      this.invoker.invokeAsync({
+
+      this.invoker.invoke({
         "jobId": jobId,
         "currentSpawnIndex" : newIndex,
         "spawnTarget" : spawnTarget,
         "executorType": executorType,
         "invokerType": invokerType
-      })
-        .then((err, data) => {
-          if (currentSpawnIndex == spawnTarget) this.timekeeper.endJob();
-          if (completed) completed(err, data);
-        });
+      },
+      // on completed
+      (err, data) => {
+        // we don't want to spawn any more
+        if (newIndex == spawnTarget - 1) this.timekeeper.endJob();
+        if (completed) completed(err, data);
+      });
     }
   }
 }
