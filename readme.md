@@ -7,25 +7,26 @@ A simple test harness to investigate the performance characteristics of  differe
 Available Execution Types
 -------------------------
 
-*Linear*
+**Linear**
 
-Lambda 1 -> Lambda 2 -> ... -> Lambda n
+    Lambda 1 -> Lambda 2 -> ... -> Lambda n
 
 Timer starts prior to Lambda 1.
 Timer ends upon completion of Lambda n.
 
-*Cascade*
-                            -> ...
-                          /
-            -> Lambda 1-1
-          /               \
-         /                  -> ...
-Lambda 1  
-         \                  -> ...
-          \               /
-            -> Lambda 1-2
-                          \
-                            -> Lambda n-n-n
+**Cascade**
+
+                                -> ...
+                              /
+                -> Lambda 1-1
+              /               \
+             /                  -> ...
+    Lambda 1  
+             \                  -> ...
+              \               /
+                -> Lambda 1-2
+                              \
+                                -> Lambda n-n-n
 
 Timer starts prior to Lambda 1.
 Timer ends upon completion of Lambda n-n-n.
