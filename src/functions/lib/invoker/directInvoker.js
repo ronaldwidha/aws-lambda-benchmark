@@ -13,7 +13,7 @@ export default class DirectInvoker {
 
     // todo: get lambda name from serverless if possible
     lambda.invoke({
-      FunctionName: 'lambda-benchmark-lambdachainlinear',
+      FunctionName: 'lambda-benchmark-directSingleFunctionChain',
       Payload: JSON.stringify({ "executionState" : executionState }),
       InvocationType: "Event"
     }, (err, data) => {
@@ -21,6 +21,5 @@ export default class DirectInvoker {
       if (err) console.log(err, err.stack); // an error occurred
       else console.log("data:" + data);  // successful response
     });
-
   }
 }

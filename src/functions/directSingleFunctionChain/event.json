@@ -1,0 +1,10 @@
+{
+  "param": {},
+  "executionState": {
+    "jobId": "random guid",
+    "currentSpawnIndex": -1,
+    "spawnTarget": 5,
+    "executorType": "Linear",
+    "invokerType": "Direct"
+  }
+}

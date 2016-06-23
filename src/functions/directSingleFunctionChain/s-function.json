@@ -1,10 +1,10 @@
 {
-  "name": "lambdachainlinear",
+  "name": "directSingleFunctionChain",
   "runtime": "babel",
   "description": "Serverless Lambda function for project: aws-lambda-benchmark",
   "customName": false,
   "customRole": false,
-  "handler": "lambdachainlinear/handler.default",
+  "handler": "directSingleFunctionChain/handler.default",
   "timeout": 6,
   "memorySize": 1024,
   "authorizer": {},
