@@ -11,7 +11,9 @@ export default (event, context) => {
   //testRunner.linearDirectAsync(5, function(err, data)
 
   return testRunner.linearDirectAsync(5)
-    .then((err,data) => { message: 'executed'});
+    .then((err,data) => {
+      return { message: 'executed'};
+    });
 
   //return {
   //   message: 'executed'

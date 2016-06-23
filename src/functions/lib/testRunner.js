@@ -1,4 +1,5 @@
-import DirectLinearSpawner from "./directLinearSpawner"
+import DirectInvoker from "./invoker/directInvoker"
+import LinearExecutor from "./executor/linearExecutor"
 
 export default class testRunner {
   constructor() {
@@ -6,8 +7,8 @@ export default class testRunner {
   }
 
   linearDirect(n, completed) {
-    var jobId = "Direct call between lambda. depth: 5";
-    var directLinearSpawner = new DirectLinearSpawner(jobId);
-    directLinearSpawner.fire(n, completed);
+    var jobId = `Direct call between lambda. depth: ${n}`;
+    var linearExecutor = new LinearExecutor(new DirectInvoker());
+    linearExecutor.start(jobId, n, completed);
   }
 }

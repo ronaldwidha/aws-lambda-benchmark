@@ -35,17 +35,18 @@ export default class DirectLinearSpawner {
         Payload: JSON.stringify({ "jobId": this.jobId, "spawnIndex": newIndex, "spawnTarget": spawnTarget }),
         InvocationType: 'Event'
       }, (err, data) => {
+
         if (err) console.log(err, err.stack); // an error occurred
         else console.log("data" + data);           // successful response
 
-        if (completed) completed(err, data);
+        if (completed) {
+          completed(err, data);
+        }
 
         if (currentSpawnIndex == spawnTarget) {
           timekeeper.endJob();
         }
       });
     }
-
-
   }
 }
