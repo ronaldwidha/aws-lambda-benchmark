@@ -14,7 +14,7 @@ Available Execution Types
 Timer starts prior to Lambda 1.
 Timer ends upon completion of Lambda n.
 
-**Cascade**
+**Cascade** (to be implemented)
 
                                 -> ...
                               /
@@ -34,9 +34,9 @@ Timer ends upon completion of Lambda n-n-n.
 Available Invocation Types
 --------------------------
 - Direct Invocation: invoke through Aws.Lambda()
-- Http Invocation: invoke JSON over HTTP through AWS API Gateway (tbd)
-- Kinesis Invocation: tbd
-- SNS Invocation: tbd
+- Http Invocation: invoke JSON over HTTP through AWS API Gateway (to be implemented)
+- Kinesis Invocation: (to be implemented)
+- SNS Invocation: (to be implemented)
 
 Preliminary Results
 -------------------
