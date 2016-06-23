@@ -40,4 +40,15 @@ Available Invocation Types
 
 Preliminary Results
 -------------------
-TBD
+
+|  Run | Execution | Invocation |  Depth  | Duration (in ms)  |
+|---|---|---|---|---|
+| #1  | Linear | Direct | 5 | 608 ms |
+| #2  | Linear | Direct | 5 | 410 ms |
+| #3  | Linear | Direct | 1,000  | 78,926 ms |
+| #4  | Linear | Direct | 1,000  | 135,294 ms |
+| #5  | Linear | SNS | 5 | 761 ms |
+| #6  | Linear | SNS | 5 | 700 ms |
+| #7  | Linear | SNS | 5 | 729 ms |
+| #8  | Linear | SNS | 1,000 | 164,541 ms |
+| #9  | Linear | SNS | 1,000 | 345,414 ms |
