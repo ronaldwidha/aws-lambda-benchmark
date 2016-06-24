@@ -5,9 +5,9 @@ import snsSecondFunctionLambdaHelper from "../lib/snsSecondFunctionLambdaHelper"
 export default (event, context) => {
   var testRunner = Promise.promisifyAll(new TestRunner());
 
-  // linear InMemory
+  // linear InProcess
   // *****************
-  // return testRunner.linearInMemoryAsync(5)
+  // return testRunner.linearInProcessAsync(5)
   //   .then((err,data) => {
   //     return { message: 'executed'};
   //   });
