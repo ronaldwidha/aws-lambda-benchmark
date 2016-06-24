@@ -7,10 +7,10 @@ export default (event, context) => {
 
   // linear InMemory
   // *****************
-  return testRunner.linearInMemoryAsync(5)
-    .then((err,data) => {
-      return { message: 'executed'};
-    });
+  // return testRunner.linearInMemoryAsync(5)
+  //   .then((err,data) => {
+  //     return { message: 'executed'};
+  //   });
 
   // linear direct
   // *****************
@@ -41,10 +41,10 @@ export default (event, context) => {
   //  depth = 5 executes 31 tasks
 
   // enable snsSecondFunctionChain
-  // snsSecondFunctionLambdaHelper.enable();
-  //
-  // return testRunner.linearSnsAsync(3)
-  //   .then((err,data) => {
-  //     return { message: 'executed'};
-  //   });
+  snsSecondFunctionLambdaHelper.enable();
+
+  return testRunner.linearSnsAsync(3)
+    .then((err,data) => {
+      return { message: 'executed'};
+    });
 }
