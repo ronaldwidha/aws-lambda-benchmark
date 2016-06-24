@@ -1,6 +1,6 @@
 import DirectInvoker from "./invoker/directInvoker"
 import SnsInvoker from "./invoker/snsInvoker"
-import InMemoryInvoker from "./invoker/inMemoryInvoker"
+import InProcessInvoker from "./invoker/InProcessInvoker"
 import LinearExecutor from "./executor/linearExecutor"
 
 export default class testRunner {
@@ -9,9 +9,9 @@ export default class testRunner {
   }
 
   //todo: to make this generic maybe use the executor factory
-  linearInMemory(n, completed) {
-    var jobId = `InMemory call between lambda. depth: ${n}`;
-    var linearExecutor = new LinearExecutor(new InMemoryInvoker());
+  linearInProcess(n, completed) {
+    var jobId = `InProcess call between lambda. depth: ${n}`;
+    var linearExecutor = new LinearExecutor(new InProcessInvoker());
     linearExecutor.start(jobId, n, completed);
   }
 

@@ -1,9 +1,9 @@
 import SingleFunctionChain from "../singleFunctionChain"
 
-export default class InMemoryInvoker {
+export default class InProcessInvoker {
   constructor() {}
 
-  type() { return "InMemory"; }
+  type() { return "InProcess"; }
 
   invoke(executionState, completed) {
     SingleFunctionChain.handle({}, executionState);

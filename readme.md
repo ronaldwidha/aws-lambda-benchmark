@@ -33,7 +33,8 @@ Timer ends upon completion of Lambda n-n-n.
 
 Available Invocation Types
 --------------------------
-- Direct Invocation: invoke through Aws.Lambda()
+- InProcess Invocation: invoke function within the node process
+- Direct Invocation: invoke through SDK AWS.Lambda()
 - SNS Invocation
 - Http Invocation: invoke JSON over HTTP through AWS API Gateway (to be implemented)
 - Kinesis Invocation: (to be implemented)
