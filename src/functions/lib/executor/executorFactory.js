@@ -2,6 +2,7 @@ import LinearExecutor from "./linearExecutor"
 import CascadeExecutor from "./cascadeExecutor"
 import DirectInvoker from "../invoker/directInvoker"
 import SnsInvoker from "../invoker/snsInvoker"
+import InMemoryInvoker from "../invoker/inMemoryInvoker"
 
 export default class ExecutorFactory {
   static create(executorType, invokerType) {
@@ -16,6 +17,9 @@ export default class ExecutorFactory {
     }
     else if (invokerType === "Sns") {
       invoker = new SnsInvoker();
+    }
+    else if (invokerType === "InMemory") {
+      invoker = new InMemoryInvoker();
     }
     else {
       console.log("Error: unidentified invoker type. Default to DirectInvoker");

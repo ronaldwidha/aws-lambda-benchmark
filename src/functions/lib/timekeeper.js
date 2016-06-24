@@ -5,6 +5,7 @@ export default class Timekeeper {
 
   startJob() {
     console.log("start job");
+    console.log(new Date().getTime());
   }
 
   startFunction() {
@@ -34,5 +35,6 @@ export default class Timekeeper {
 
   endJob() {
     console.log("end job");
+    console.log(new Date().getTime());
   }
 }
