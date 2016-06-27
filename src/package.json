@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A simple test harness to investigate the performance characteristics of the different lambda integration pattern.",
   "author": "Ronald Widha",
-  "license": "APACHE-2",
+  "license": "Apache-2.0",
   "private": false,
   "repository": {
     "type": "git",
